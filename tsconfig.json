@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESnext",
+    "moduleResolution": "bundler",
+    "rootDir": "src",
+    "outDir": "dist",
+    "isolatedModules": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "useUnknownInCatchVariables": false
+  },
+  "exclude": ["node_modules"]
+}

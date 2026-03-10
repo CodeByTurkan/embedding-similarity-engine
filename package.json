@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env src/index.js"
+    "start": "node -r ts-node/register --env-file=.env src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +12,8 @@
   "type": "module",
   "dependencies": {
     "dotenv": "^17.3.1",
-    "openai": "^6.25.0"
+    "openai": "^6.25.0",
+    "tiktoken": "^1.0.22"
   },
   "devDependencies": {
     "@types/node": "^25.3.5",

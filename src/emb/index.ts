@@ -38,7 +38,7 @@ function saveDataToJsonFile(data: any, filename: string) {
 }
 
 async function createJsonFile() {
-  const data = loadJson<string[]>("index.json");
+  const data = loadJson<string[]>("index2.json");
   const embeddings = await createEmbeddings(data);
   const dataEmbedding: EmbeddingsData[] = [];
   for (let i = 0; i < data.length; i++) {
@@ -47,7 +47,7 @@ async function createJsonFile() {
       embedding: embeddings.data[i].embedding,
     });
   }
-  saveDataToJsonFile(dataEmbedding, "dataEmbedding.json");
+  saveDataToJsonFile(dataEmbedding, "dataEmbedding2.json");
 }
 
 createJsonFile();

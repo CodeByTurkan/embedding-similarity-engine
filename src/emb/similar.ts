@@ -1,5 +1,5 @@
-import { createEmbeddings, loadJson } from "./main.ts";
-import type { EmbeddingsData } from "./main.ts";
+import { createEmbeddings, loadJson } from "./index.ts";
+import type { EmbeddingsData } from "./index.ts";
 
 function dotProduct(a: number[], b: number[]) {
   return a.map((value, index) => value * b[index]).reduce((a, b) => a + b, 0);
@@ -18,8 +18,8 @@ function cosineSimilarity(a: number[], b: number[]) {
 }
 
 async function createSimilarity() {
-  const dataEmbedding = loadJson<EmbeddingsData[]>("dataEmbedding.json");
-  const input = "sql";
+  const dataEmbedding = loadJson<EmbeddingsData[]>("dataEmbedding2.json");
+  const input = "What is machine learning?";
   const inputEmbeddings = await createEmbeddings(input);
 
   const similarities: {
@@ -28,7 +28,7 @@ async function createSimilarity() {
   }[] = [];
 
   for (const entry of dataEmbedding) {
-    const similarity = cosineSimilarity(
+    const similarity = dotProduct(
       entry.embedding,
       inputEmbeddings.data[0].embedding,
     );

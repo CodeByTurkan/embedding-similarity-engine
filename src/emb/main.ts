@@ -6,23 +6,23 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const client = new OpenAI();
-type EmbeddingsData = {
+export type EmbeddingsData = {
   input: string;
   embedding: number[];
 };
-async function createEmbeddings(input: string | string[]) {
+export async function createEmbeddings(input: string | string[]) {
   const response = await client.embeddings.create({
     input: input,
     model: "text-embedding-3-small",
   });
-  console.log(response.data[0].embedding);
+  // console.log(response.data[0].embedding);
 
   return response;
 }
 
-createEmbeddings(["cat is an animal ", "dog is also an animal"]);
+// createEmbeddings(["cat is an animal ", "dog is also an animal"]);
 
-function loadJson<T>(filename: string): T {
+export function loadJson<T>(filename: string): T {
   const path = join(__dirname, filename);
   const rawData = readFileSync(path);
   return JSON.parse(rawData.toString());
@@ -47,7 +47,7 @@ async function createJsonFile() {
       embedding: embeddings.data[i].embedding,
     });
   }
-    saveDataToJsonFile(dataEmbedding, 'dataEmbedding.json')
+  saveDataToJsonFile(dataEmbedding, "dataEmbedding.json");
 }
 
-createJsonFile()
+createJsonFile();

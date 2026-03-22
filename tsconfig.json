@@ -8,7 +8,10 @@
     "isolatedModules": true,
     "strict": true,
     "esModuleInterop": true,
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "allowImportingTsExtensions": true,
+    "declaration": true,
+    "emitDeclarationOnly": true
   },
   "exclude": ["node_modules"]
 }
